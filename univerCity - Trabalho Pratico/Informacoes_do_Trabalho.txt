@@ -1,0 +1,12 @@
+Trabalho Prático de Laboratório de Computação II (2º Período - Eng. de Software, PUCMinas) 
+
+~ Sistema Java de Universidade com funcionalidades gerenciais
+	- Criação de cursos;
+	- Criação de Disciplinas;
+ 	- Matricula de alunos no curso
+	- Matriculas em disciplinas
+	- Exibição de relatórios [cursos, disciplinas, listas de presenças e listagem de alunos regulares].
+
+Alunos: 
+	- Otávio Guimarães
+	- Daniel Lyncon
