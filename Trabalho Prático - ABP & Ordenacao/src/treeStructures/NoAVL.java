@@ -1,3 +1,5 @@
+package treeStructures;
+
 public class NoAVL {
 
     private NoAVL esquerda;

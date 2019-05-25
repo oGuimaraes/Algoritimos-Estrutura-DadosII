@@ -1,3 +1,5 @@
+package treeStructures;
+
 public class CNo {
     public int item;
     public CNo direita, esquerda;

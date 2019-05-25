@@ -1,5 +1,4 @@
-import javax.swing.*;
-import java.sql.SQLOutput;
+package treeStructures;
 
 public class CArvBin {
 
@@ -9,12 +8,12 @@ public class CArvBin {
         raiz = null;
     }
 
-    /* Método recursivo que insere novo nó */
+    /* Mï¿½todo recursivo que insere novo nï¿½ */
     public void adicionar(int valor) {
         raiz = adicionarRecursivo(raiz, valor);
     }
 
-    /* Método recursivo de inserção de valores na ABP */
+    /* Mï¿½todo recursivo de inserï¿½ï¿½o de valores na ABP */
     private CNo adicionarRecursivo(CNo no, int valor) {
         if (no == null)
             return new CNo(valor);
@@ -25,15 +24,15 @@ public class CArvBin {
         return no;
     }
 
-    /* Imprime árvore BPM na forma escolhida */
+    /* Imprime ï¿½rvore BPM na forma escolhida */
     public void imprimir(String forma) {
         switch (forma) {
             case "preOrdem":
-                System.out.println("Impressão (Pré-Ordem): ");
+                System.out.println("Impressï¿½o (Prï¿½-Ordem): ");
                 preOrdem(raiz);
                 break;
             case "emOrdem":
-                System.out.println("Impressão (Em-Ordem): ");
+                System.out.println("Impressï¿½o (Em-Ordem): ");
                 emOrdem(raiz);
                 break;
             case "posOrdem":
@@ -45,7 +44,7 @@ public class CArvBin {
                 emOrdemDecrescente(raiz);
                 break;
             default:
-                System.out.println("\nOpção invalida!");
+                System.out.println("\nOpï¿½ï¿½o invalida!");
                 break;
         }
     }
@@ -82,12 +81,12 @@ public class CArvBin {
         }
     }
 
-    /* Método que retorna se possui o nó na arvore ABP */
+    /* Mï¿½todo que retorna se possui o nï¿½ na arvore ABP */
     public boolean contem(int valor) {
         return contem(raiz, valor);
     }
 
-    /* Método recursivo que busca nó */
+    /* Mï¿½todo recursivo que busca nï¿½ */
     private boolean contem(CNo no, int valor) {
         if (no == null)
             return false;
@@ -100,7 +99,7 @@ public class CArvBin {
         }
     }
 
-    /* Método iterativo de busca em ABP */
+    /* Mï¿½todo iterativo de busca em ABP */
     public boolean achar(int id) {
         CNo no = raiz;
         while (no != null) {
@@ -114,12 +113,12 @@ public class CArvBin {
         return false;
     }
 
-    /* Chama função delete */
+    /* Chama funï¿½ï¿½o delete */
     public void delete(int valor) {
         raiz = deleteRecursivo(raiz, valor);
     }
 
-    /* Método recursivo que exclui nó */
+    /* Mï¿½todo recursivo que exclui nï¿½ */
     private CNo deleteRecursivo(CNo no, int valor) {
         if (no == null)
             return null;
@@ -148,7 +147,7 @@ public class CArvBin {
         return no;
     }
 
-    /* Chama a funcao menorValor da árvore */
+    /* Chama a funcao menorValor da ï¿½rvore */
     public int menorValorArvore() {
         return menorValor(raiz);
     }
@@ -168,23 +167,23 @@ public class CArvBin {
         return maiorValor(retornaNo(raiz, valor));
     }
 
-    /* Retorna o menor valor em uma subárvore */
+    /* Retorna o menor valor em uma subï¿½rvore */
     private int menorValor(CNo no) {
         return no.esquerda == null ? no.item : menorValor(no.esquerda);
     }
 
-    /* Retorna o maior valor de uma subárvore */
+    /* Retorna o maior valor de uma subï¿½rvore */
     private int maiorValor(CNo no) {
         return no.direita == null ? no.item : maiorValor(no.direita);
     }
 
-    /* Chama função que retorna a altura do nó
+    /* Chama funï¿½ï¿½o que retorna a altura do nï¿½
        cujo o valor foi informado */
     public int altura(int valor) {
         return alturaRecursiva(retornaNo(raiz, valor));
     }
 
-    /* Retorna a altura da árvore a partir de um nó */
+    /* Retorna a altura da ï¿½rvore a partir de um nï¿½ */
     private int alturaRecursiva(CNo no) {
         if (no == null)
             return 0;
@@ -233,18 +232,18 @@ public class CArvBin {
         imprimeCompletoStr(raiz, null);
     }
 
-    /* Método imprime diversas informações sobre no */
+    /* Mï¿½todo imprime diversas informaï¿½ï¿½es sobre no */
     private void imprimeCompletoStr(CNo no, CNo pai) {
         if (no != null) {
             imprimeCompletoStr(no.esquerda, no);
             System.out.println("Valor: " + no.item);
             System.out.println("Altura: " + alturaRecursiva(no));
             System.out.println("Profundidade: " + profundidadeRecursiva(raiz, no.item));
-            System.out.println("Nó Pai: " + (pai == null ? "Não possui" : pai.item));
+            System.out.println("Nï¿½ Pai: " + (pai == null ? "Nï¿½o possui" : pai.item));
             System.out.println("Quantidade de filhos: " + quantidadeFilhos(no.item));
-            System.out.println("Nó a esquerda: " + (no.esquerda == null ? "Não possui" : no.esquerda.item));
-            System.out.println("Nó a direita: " + (no.direita == null ? "Não possui" : no.direita.item));
-            System.out.println(eFolhaFinal(no) ? "É folha" : "Não é folha");
+            System.out.println("Nï¿½ a esquerda: " + (no.esquerda == null ? "Nï¿½o possui" : no.esquerda.item));
+            System.out.println("Nï¿½ a direita: " + (no.direita == null ? "Nï¿½o possui" : no.direita.item));
+            System.out.println(eFolhaFinal(no) ? "ï¿½ folha" : "Nï¿½o ï¿½ folha");
             System.out.println();
             imprimeCompletoStr(no.direita, no);
         }
@@ -274,7 +273,7 @@ public class CArvBin {
         return retornaIndiceRecursivo(retornaNo(raiz, valor));
     }
 
-    /* Retorna o indice de um nó */
+    /* Retorna o indice de um nï¿½ */
     public int retornaIndiceRecursivo(CNo no) {
         if (no == null)
             return 0;
@@ -283,7 +282,7 @@ public class CArvBin {
 
     /* Imprime todos os nos folhas da arvore */
     public void imprimeNosFolha() {
-        System.out.print("Nós folha: ");
+        System.out.print("Nï¿½s folha: ");
         retornaNoFolha(raiz);
     }
 
