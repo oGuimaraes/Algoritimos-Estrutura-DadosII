@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e335d2c9-d898-453f-856c-a17709a89585" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Lista_0" beforeDir="false" afterPath="$PROJECT_DIR$/../Lista_0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Aplicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Aplicacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/treeStructures/CArvAVL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/treeStructures/CArvAVL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/treeStructures/CArvBin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/treeStructures/CArvBin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/treeStructures/CArvBin2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/treeStructures/NoAVL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/treeStructures/NoAVL.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Aplicacao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="173" column="62" selection-start-line="173" selection-start-column="62" selection-end-line="173" selection-end-column="62" />
+            <state relative-caret-position="45">
+              <caret line="176" selection-start-line="176" selection-end-line="203" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -233,7 +228,7 @@
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.38297874" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.16366611" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -299,8 +294,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Aplicacao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="173" column="62" selection-start-line="173" selection-start-column="62" selection-end-line="173" selection-end-column="62" />
+        <state relative-caret-position="45">
+          <caret line="176" selection-start-line="176" selection-end-line="203" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

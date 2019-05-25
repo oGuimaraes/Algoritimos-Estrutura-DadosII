@@ -12,8 +12,7 @@ public class Aplicacao {
     public static void main(String[] args) {
 
         consultaCrescente(calculaTempoInsercaoCrescente());
-
-        calculaTempoInsercaoDecrescente();
+        consultaDecrescente(calculaTempoInsercaoDecrescente());
         calculaTempoInsercaoAleatorio();
 
     }
@@ -70,7 +69,7 @@ public class Aplicacao {
         /* Criação das arvores ABP & AVL */
         CArvBin abpDecrescente = new CArvBin();
         CArvAVL avlDecrescente = new CArvAVL();
-        int nElementos = 17840;
+        int nElementos = 12000;
 
         System.out.println("\n" + "Inserção Ordem-Decrescente (NºElementos:" + nElementos + "):");
 
@@ -161,14 +160,43 @@ public class Aplicacao {
         System.out.println("Tempo para consultar o ultimo nó da árvore ");
         /* Calcula tempo de consulta do ultimo item da arvore ABP */
         tempInicial = System.currentTimeMillis();
-        CNo noABPConsultado = abpCrescente.consultaNo(10000);
+        CNo noABPConsultado = abpCrescente.consultaNo(5000);
         tempFinal = System.currentTimeMillis();
         tempCalculadoAVL = (tempFinal - tempInicial);
         System.out.println("- ABP: " + tempCalculadoAVL + "ms");
 
         /* Calcula tempo de consulta do ultimo item da arvore AVL */
         tempInicial = System.currentTimeMillis();
-        NoAVL noAVLConsultado = avlCrescente.consultaNo(10000);
+        NoAVL noAVLConsultado = avlCrescente.consultaNo(5000);
+        tempFinal = System.currentTimeMillis();
+        tempCalculadoABP = (tempFinal - tempInicial);
+        System.out.println("- AVL: " + tempCalculadoABP + "ms");
+        System.out.print("-------------------------------------");
+    }
+
+    private static void consultaDecrescente(List<Object> treeList) {
+
+        /* Declaraçao das variaveis TEMPO */
+        long tempInicial;
+        long tempFinal;
+        long tempCalculadoABP = 0;
+        long tempCalculadoAVL = 0;
+
+        /* Armazenando em variavel as arvores ABP e AVL recebidas pela lista como parametro */
+        CArvBin abpDecrescente = (CArvBin) treeList.get(0);
+        CArvAVL avlDecrescente = (CArvAVL) treeList.get(1);
+
+        System.out.println("Tempo para consultar o ultimo nó da árvore ");
+        /* Calcula tempo de consulta do ultimo item da arvore ABP */
+        tempInicial = System.currentTimeMillis();
+        CNo noABPConsultado = abpDecrescente.consultaNo(10000);
+        tempFinal = System.currentTimeMillis();
+        tempCalculadoAVL = (tempFinal - tempInicial);
+        System.out.println("- ABP: " + tempCalculadoAVL + "ms");
+
+        /* Calcula tempo de consulta do ultimo item da arvore AVL */
+        tempInicial = System.currentTimeMillis();
+        NoAVL noAVLConsultado = avlDecrescente.consultaNo(10000);
         tempFinal = System.currentTimeMillis();
         tempCalculadoABP = (tempFinal - tempInicial);
         System.out.println("- AVL: " + tempCalculadoABP + "ms");
