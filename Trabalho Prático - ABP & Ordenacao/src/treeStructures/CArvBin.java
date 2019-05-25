@@ -9,7 +9,7 @@ public class CArvBin {
     }
 
     /* M�todo recursivo que insere novo n� */
-    public void adicionar(int valor) {
+    public void inserir(int valor) {
         raiz = adicionarRecursivo(raiz, valor);
     }
 
