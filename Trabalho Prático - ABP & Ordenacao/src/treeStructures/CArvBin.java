@@ -259,6 +259,12 @@ public class CArvBin {
         return no.esquerda == null && no.direita == null;
     }
 
+    /* Chama a funcao retornaNo */
+    public CNo consultaNo(int valor) {
+        CNo no = raiz;
+        return retornaNo(no, valor);
+    }
+
     /* Encontra e retorna um no passado por valor */
     private CNo retornaNo(CNo no, int valor) {
         if (no == null)

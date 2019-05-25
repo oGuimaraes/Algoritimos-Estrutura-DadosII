@@ -5,7 +5,7 @@ public class NoAVL {
     private NoAVL esquerda;
     private NoAVL direita;
     private NoAVL pai;
-    private int chave;
+    public int chave;
     private int balanceamento;
 
     public NoAVL(int k) {
@@ -13,6 +13,9 @@ public class NoAVL {
         setBalanceamento(0);
         setChave(k);
     }
+
+
+
 
     public String toString() {
         return Integer.toString(getChave());

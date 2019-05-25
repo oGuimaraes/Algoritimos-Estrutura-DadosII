@@ -76,6 +76,56 @@ public class CArvAVL {
         }
     }
 
+//    public int consultarNo(int k){
+//        NoAVL no = consultarNoAVL(NoAvl atual, int k);
+//
+//    }
+//
+//    public NoAVL consultarAVL(NoAVL atual, int k) {
+//        if (atual == null) {
+//            return;
+//
+//        } else {
+//
+//            if (atual.getChave() > k) {
+//                removerAVL(atual.getEsquerda(), k);
+//
+//            } else if (atual.getChave() < k) {
+//                removerAVL(atual.getDireita(), k);
+//
+//            } else if (atual.getChave() == k) {
+//                return removerNoEncontrado(atual);
+//            }
+//        }
+//    }
+
+    /* Chama a funcao retornaNo */
+    public NoAVL consultaNo(int valor) {
+        NoAVL no = raiz;
+        return retornaNo(no, valor);
+    }
+
+    /* Encontra e retorna um no passado por valor */
+    private NoAVL retornaNo(NoAVL no, int valor) {
+        if (no == null)
+            return null;
+        if (valor == no.chave)
+            return no;
+
+        NoAVL esquerda = no.getEsquerda();
+        NoAVL direita = no.getDireita();
+
+        if (valor < no.chave){
+            return retornaNo(esquerda, valor);
+        } else if ( valor > no.chave) {
+            return retornaNo(direita, valor);
+        }
+
+        return null;
+        //return retornaNo(valor < no.chave ? retornaNo(esquerda, valor) : retornaNo(direita, valor));
+    }
+
+
     public void remover(int k) {
         removerAVL(this.raiz, k);
     }
