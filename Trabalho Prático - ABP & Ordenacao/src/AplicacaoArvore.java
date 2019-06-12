@@ -1,57 +1,63 @@
 import treeStructures.CArvAVL;
 import treeStructures.CArvBin;
-import treeStructures.CNo;
-import treeStructures.NoAVL;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Aplicacao {
-
+public class AplicacaoArvore {
+	
+    static long tempInicial;
+    static long tempFinal;
+    static long tempCalculadoABP = 0;
+    static long tempCalculadoAVL = 0;
+    
+    
+	static int nElementos = 500000;
+	static int[] vetorAleatorio = new int [nElementos];
+	private static ArrayList<Object> treeList;
+	
     public static void main(String[] args) {
-
+    	
+    	preencheVetorAleatorio();
         consultaCrescente(calculaTempoInsercaoCrescente());
         consultaDecrescente(calculaTempoInsercaoDecrescente());
-        calculaTempoInsercaoAleatorio();
+        consultaAleatorio(calculaTempoInsercaoAleatorio());
 
+    }
+    
+    private static void preencheVetorAleatorio() {	
+    	Random random = new Random();
+    	for (int i = 0; i < nElementos; i++ ){
+    		vetorAleatorio[i] = random.nextInt(nElementos);
+    	}
     }
 
     private static List<Object> calculaTempoInsercaoCrescente(){
 
-        /* Declaraçao das variaveis TEMPO */
-        long tempInicial;
-        long tempFinal;
-        long tempCalculadoABP = 0;
-        long tempCalculadoAVL = 0;
-
-        /* Criação das arvores ABP & AVL */
+        /* Criacao das arvores ABP & AVL */
         CArvBin abpCrescente = new CArvBin();
         CArvAVL avlCrescente = new CArvAVL();
-        int nElementos = 12000;
         System.out.println("--------------------------------------------");
-        System.out.println("Inserção Ordem-Crescente (NºElementos:" + nElementos + "): ");
+        System.out.println("Insercao Ordem-Crescente (N�Elementos:" + nElementos + "): ");
 
-        /* Inserção dos valores e calculando tempo na árvore ABP */
+        /* Insercao dos valores e calculando tempo na arvore ABP */
         tempInicial = System.currentTimeMillis();
-        for (int i = 1; i <= nElementos; i++) {
+        for (int i = 1; i <= nElementos; i++)
             abpCrescente.inserir(i);
-        }
         tempFinal = System.currentTimeMillis();
         tempCalculadoABP = (tempFinal - tempInicial);
         System.out.println("- ABP: " + tempCalculadoABP + "ms");
 
 
-        /* Inserção dos valores e calculando tempo na árvore AVL */
+        /* Insercao dos valores e calculando tempo na árvore AVL */
         tempInicial = System.currentTimeMillis();
-        for (int i = 1; i <= nElementos; i++) {
+        for (int i = 1; i <= nElementos; i++)
             avlCrescente.inserir(i);
-        }
         tempFinal = System.currentTimeMillis();
         tempCalculadoAVL = (tempFinal - tempInicial);
         System.out.println("- AVL: " + tempCalculadoAVL + "ms");
 
-        ArrayList treeList = new ArrayList();
+        treeList = new ArrayList<Object>();
         treeList.add(0, abpCrescente);
         treeList.add(1, avlCrescente);
 
@@ -60,39 +66,29 @@ public class Aplicacao {
 
     private static List<Object> calculaTempoInsercaoDecrescente(){
 
-        /* Declaraçao das variaveis TEMPO */
-        long tempInicial;
-        long tempFinal;
-        long tempCalculadoABP = 0;
-        long tempCalculadoAVL = 0;
-
-        /* Criação das arvores ABP & AVL */
+        /* Criacao das arvores ABP & AVL */
         CArvBin abpDecrescente = new CArvBin();
         CArvAVL avlDecrescente = new CArvAVL();
-        int nElementos = 12000;
 
-        System.out.println("\n" + "Inserção Ordem-Decrescente (NºElementos:" + nElementos + "):");
+        System.out.println("\n" + "Insercao Ordem-Decrescente (N�Elementos:" + nElementos + "):");
 
-        /* Inserção dos valores e calculando tempo na árvore ABP */
+        /* Insercao dos valores e calculando tempo na arvore ABP */
         tempInicial = System.currentTimeMillis();
-        for (int i = nElementos; i >= 1; i--) {
+        for (int i = nElementos; i >= 1; i--)
             abpDecrescente.inserir(i);
-        }
         tempFinal = System.currentTimeMillis();
         tempCalculadoABP = (tempFinal - tempInicial);
         System.out.println("- ABP: " + tempCalculadoABP + "ms");
 
-
-        /* Inserção dos valores e calculando tempo na árvore AVL */
+        /* Insercao dos valores e calculando tempo na arvore AVL */
         tempInicial = System.currentTimeMillis();
-        for (int i = nElementos; i >= 1; i--) {
+        for (int i = nElementos; i >= 1; i--)
             avlDecrescente.inserir(i);
-        }
         tempFinal = System.currentTimeMillis();
         tempCalculadoAVL = (tempFinal - tempInicial);
         System.out.println("- AVL: " + tempCalculadoAVL + "ms");
 
-        ArrayList treeList = new ArrayList();
+        ArrayList<Object> treeList = new ArrayList<Object>();
         treeList.add(0, abpDecrescente);
         treeList.add(1, avlDecrescente);
 
@@ -101,44 +97,29 @@ public class Aplicacao {
 
     private static List<Object> calculaTempoInsercaoAleatorio(){
 
-        /* Declaraçao das variaveis TEMPO */
-        long tempInicial;
-        long tempFinal;
-        long tempCalculadoABP = 0;
-        long tempCalculadoAVL = 0;
-
-        /* Criação das arvores ABP & AVL */
+        /* Criacao das arvores ABP & AVL */
         CArvBin abpAleatorio = new CArvBin();
         CArvAVL avlAleatorio = new CArvAVL();
-        Random random = new Random();
-        int nElementos = 17840;
 
-        System.out.println("\n" + "Inserção Aleatoria (NºElementos:" + nElementos + "): ");
+        System.out.println("\n" + "Insercao Aleatoria (N�Elementos:" + nElementos + "): ");
 
-        /* Inserção dos valores e calculando tempo na árvore ABP */
+        /* Insercao dos valores e calculando tempo na arvore ABP */
         tempInicial = System.currentTimeMillis();
-        for (int i = 1; i < nElementos; i++) {
-            abpAleatorio.inserir(i);
-            if (i == nElementos/2) // Inserir no meio da arvore o elemento -1 (Para fins de consulta)
-                avlAleatorio.inserir(-1);
-        }
+        for (int i = 1; i < nElementos; i++) 
+            abpAleatorio.inserir(vetorAleatorio[i]);  
         tempFinal = System.currentTimeMillis();
         tempCalculadoABP = (tempFinal - tempInicial);
         System.out.println("- ABP: " + tempCalculadoABP + "ms");
 
-
-        /* Inserção dos valores e calculando tempo na árvore AVL */
+        /* Insercao dos valores e calculando tempo na arvore AVL */
         tempInicial = System.currentTimeMillis();
-        for (int i = 1; i < nElementos; i++) {
-            avlAleatorio.inserir(random.nextInt(1000));
-            if (i == nElementos/2)
-                avlAleatorio.inserir(-1); // Inserir no meio da arvore o elemento -1 (Para fins de consulta)
-        }
+        for (int i = 1; i < nElementos; i++)
+            avlAleatorio.inserir(vetorAleatorio[i]);
         tempFinal = System.currentTimeMillis();
         tempCalculadoAVL = (tempFinal - tempInicial);
         System.out.println("- AVL: " + tempCalculadoAVL + "ms");
 
-        ArrayList treeList = new ArrayList();
+        ArrayList<Object> treeList = new ArrayList<Object>();
         treeList.add(0, abpAleatorio);
         treeList.add(1, avlAleatorio);
 
@@ -147,59 +128,81 @@ public class Aplicacao {
 
     private static void consultaCrescente(List<Object> treeList) {
 
-        /* Declaraçao das variaveis TEMPO */
-        long tempInicial;
-        long tempFinal;
-        long tempCalculadoABP = 0;
-        long tempCalculadoAVL = 0;
-
         /* Armazenando em variavel as arvores ABP e AVL recebidas pela lista como parametro */
         CArvBin abpCrescente = (CArvBin) treeList.get(0);
         CArvAVL avlCrescente = (CArvAVL) treeList.get(1);
 
-        System.out.println("Tempo para consultar o ultimo nó da árvore ");
+        System.out.println("Tempo para consultar o ultimo no da arvore ");
         /* Calcula tempo de consulta do ultimo item da arvore ABP */
         tempInicial = System.currentTimeMillis();
-        CNo noABPConsultado = abpCrescente.consultaNo(5000);
+        for (int i = 1; i <= nElementos; i++)
+        	abpCrescente.consultaNo(i);
         tempFinal = System.currentTimeMillis();
-        tempCalculadoAVL = (tempFinal - tempInicial);
-        System.out.println("- ABP: " + tempCalculadoAVL + "ms");
+        tempCalculadoABP = (tempFinal - tempInicial);
+        System.out.println("- ABP: " + tempCalculadoABP + "ms");
 
         /* Calcula tempo de consulta do ultimo item da arvore AVL */
         tempInicial = System.currentTimeMillis();
-        NoAVL noAVLConsultado = avlCrescente.consultaNo(5000);
+        for (int i = 1; i <= nElementos; i++)
+        	avlCrescente.consultaNo(i);
         tempFinal = System.currentTimeMillis();
-        tempCalculadoABP = (tempFinal - tempInicial);
-        System.out.println("- AVL: " + tempCalculadoABP + "ms");
+        tempCalculadoAVL = (tempFinal - tempInicial);
+        System.out.println("- AVL: " + tempCalculadoAVL + "ms");
         System.out.print("-------------------------------------");
     }
 
     private static void consultaDecrescente(List<Object> treeList) {
 
-        /* Declaraçao das variaveis TEMPO */
+        /* Armazenando em variavel as arvores ABP e AVL recebidas pela lista como parametro */
+        CArvBin abpDecrescente = (CArvBin) treeList.get(0);
+        CArvAVL avlDecrescente = (CArvAVL) treeList.get(1);
+
+        System.out.println("Tempo para consultar o ultimo no da arvore ");
+        /* Calcula tempo de consulta do ultimo item da arvore ABP */
+        tempInicial = System.currentTimeMillis();
+        for (int i = nElementos; i > 0; i--)
+        	 abpDecrescente.consultaNo(i);
+        tempFinal = System.currentTimeMillis();
+        tempCalculadoABP = (tempFinal - tempInicial);
+        System.out.println("- ABP: " + tempCalculadoABP + "ms");
+
+        /* Calcula tempo de consulta do ultimo item da arvore AVL */
+        tempInicial = System.currentTimeMillis();
+        for (int i = nElementos; i > 0; i--)
+        	avlDecrescente.consultaNo(i);
+        tempFinal = System.currentTimeMillis();
+        tempCalculadoAVL = (tempFinal - tempInicial);
+        System.out.println("- AVL: " + tempCalculadoAVL + "ms");
+        System.out.print("-------------------------------------");
+    }
+
+    private static void consultaAleatorio(List<Object> treeList) {
+
+        /* Declaracao das variaveis TEMPO */
         long tempInicial;
         long tempFinal;
         long tempCalculadoABP = 0;
         long tempCalculadoAVL = 0;
 
         /* Armazenando em variavel as arvores ABP e AVL recebidas pela lista como parametro */
-        CArvBin abpDecrescente = (CArvBin) treeList.get(0);
-        CArvAVL avlDecrescente = (CArvAVL) treeList.get(1);
+        CArvBin abpAleatorio = (CArvBin) treeList.get(0);
+        CArvAVL avlAleatorio = (CArvAVL) treeList.get(1);
 
-        System.out.println("Tempo para consultar o ultimo nó da árvore ");
+        System.out.println("Tempo para consultar o ultimo na da arvore ");
         /* Calcula tempo de consulta do ultimo item da arvore ABP */
         tempInicial = System.currentTimeMillis();
-        CNo noABPConsultado = abpDecrescente.consultaNo(10000);
+        for (int i = 1; i < nElementos; i++)
+        	abpAleatorio.consultaNo(vetorAleatorio[i]);
         tempFinal = System.currentTimeMillis();
-        tempCalculadoAVL = (tempFinal - tempInicial);
-        System.out.println("- ABP: " + tempCalculadoAVL + "ms");
+        tempCalculadoABP = (tempFinal - tempInicial);
+        System.out.println("- ABP: " + tempCalculadoABP + "ms");
 
         /* Calcula tempo de consulta do ultimo item da arvore AVL */
         tempInicial = System.currentTimeMillis();
-        NoAVL noAVLConsultado = avlDecrescente.consultaNo(10000);
-        tempFinal = System.currentTimeMillis();
-        tempCalculadoABP = (tempFinal - tempInicial);
-        System.out.println("- AVL: " + tempCalculadoABP + "ms");
+        for (int i = 1; i < nElementos; i++)
+        	avlAleatorio.consultaNo(vetorAleatorio[i]);
+        tempCalculadoAVL = (tempFinal - tempInicial);
+        System.out.println("- AVL: " + tempCalculadoAVL + "ms");
         System.out.print("-------------------------------------");
     }
 
